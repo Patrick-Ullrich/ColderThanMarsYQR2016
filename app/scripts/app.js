@@ -17,30 +17,46 @@ angular
     'ngSanitize',
     'ngTouch'
   ])
+  .directive('custom-graph', [function() {
+    return {
+      template: '',
+      restrict: 'E',
+      scope: {
+
+      }, 
+      link: function(scope, element, attrs)
+       {
+
+       },
+       controller: function($scope) {
+
+       }    
+     };
+  }])
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
-        templateUrl: 'views/main.html',
+        templateUrl: 'views/1990.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/2006', {
-        templateUrl: 'views/2006.html',
+      .when('/1990', {
+        templateUrl: 'views/1990.html',
         controller: 'MainCtrl',
         controllerAs: 'mail'
       })
-      .when('/2007', {
-        templateUrl: 'views/2007.html',
+      .when('/1995', {
+        templateUrl: 'views/1995.html',
+        controller: 'MainCtrl',
+        controllerAs: 'mail'
+      })
+      .when('/2000', {
+        templateUrl: 'views/2000.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
-      .when('/2008', {
-        templateUrl: 'views/2008.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/2009', {
-        templateUrl: 'views/2009.html',
+      .when('/2005', {
+        templateUrl: 'views/2005.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
@@ -61,16 +77,6 @@ angular
       })
       .when('/2013', {
         templateUrl: 'views/2013.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/2014', {
-        templateUrl: 'views/2014.html',
-        controller: 'MainCtrl',
-        controllerAs: 'main'
-      })
-      .when('/2015', {
-        templateUrl: 'views/2015.html',
         controller: 'MainCtrl',
         controllerAs: 'main'
       })
