@@ -5,6 +5,8 @@
     <title></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
+
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(.) styles/vendor.css -->
     <!-- bower:css -->
@@ -21,54 +23,63 @@
     <![endif]-->
 
     <!-- Add your site or application content here -->
-    <div class="header">
-      <div class="navbar navbar-default" role="navigation">
-        <div class="container">
-          <div class="navbar-header">
-
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#js-navbar-collapse">
-              <span class="sr-only">Toggle navigation</span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-              <span class="icon-bar"></span>
-            </button>
-
-            <a class="navbar-brand" href="#/">colderThanMarsYqr2016</a>
-          </div>
-
-          <div class="collapse navbar-collapse" id="js-navbar-collapse">
-
-            <ul class="nav navbar-nav">
-              <li class="active"><a href="#/">Home</a></li>
-              <li><a ng-href="#/about">About</a></li>
-              <li><a ng-href="#/">Contact</a></li>
-            </ul>
-          </div>
-        </div>
+    
+    <header class="masthead">
+  <div class="container">
+  <div class="row title">
+    <div class="col-sm-12">
+      <div class="text-center">
+      <h1>Saskatchewan CO2 Emission<p class="lead">data humanization hackathon submission</p></h1>
       </div>
     </div>
+  </div>
+  </div>
+</header>         
+    
+    
+<!-- Begin Navbar -->
+<div id="nav">
+  <div class="navbar navbar-default navbar-static">
+    <div class="container">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <a class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="glyphicon glyphicon-bar"></span>
+        <span class="glyphicon glyphicon-bar"></span>
+        <span class="glyphicon glyphicon-bar"></span>
+      </a>
+      <div class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+          <li class="active"><a href="#/2006">2006</a></li>
+          <li><a href="#/2007">2007</a></li>
+          <li><a href="#/2008">2008</a></li>
+          <li><a href="#/2009">2009</a></li>
+          <li><a href="#/2010">2010</a></li>
+          <li><a href="#/2011">2011</a></li>
+          <li><a href="#/2012">2012</a></li>
+          <li><a href="#/2013">2013</a></li>
+          <li><a href="#/2014">2014</a></li>
+          <li><a href="#/2015">2015</a></li>
+        </ul>
+      </div>    
+    </div>
+  </div><!-- /.navbar -->
+</div>
+
 
     <div class="container">
     <div ng-view=""></div>
     </div>
-
-    <div class="footer">
-      <div class="container">
-        <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
-      </div>
+    <hr class="division"/>
+    <div class="container">
+...GRAPH...
     </div>
 
 
-    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
-     <script>
-       !function(A,n,g,u,l,a,r){A.GoogleAnalyticsObject=l,A[l]=A[l]||function(){
-       (A[l].q=A[l].q||[]).push(arguments)},A[l].l=+new Date,a=n.createElement(g),
-       r=n.getElementsByTagName(g)[0],a.src=u,r.parentNode.insertBefore(a,r)
-       }(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-
-       ga('create', 'UA-XXXXX-X');
-       ga('send', 'pageview');
-    </script>
+    <div class="footer">
+      <div class="container">
+        <p></p>
+      </div>
+    </div>
 
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
