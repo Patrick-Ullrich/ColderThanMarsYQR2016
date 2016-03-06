@@ -345,6 +345,7 @@ var line = d3.svg.line()
       .when('/1995', {
         templateUrl: 'views/1995.html',
         controller: 'MainCtrl',
+        activetab: '1995',
         controllerAs: 'mail'
       })
       .when('/2000', {
