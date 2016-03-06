@@ -79,7 +79,11 @@
         <p></p>
       </div>
     </div>
-
+    <div id="tooltip" class="hidden tooltip2">
+          <p> Emission <span id="category"> </span> </p>
+          <p> in <span id="date">Y-M-E</span> =
+          <strong>   <span id="value">100</span> </strong></p>
+    </div>
     <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/dist/jquery.js"></script>
@@ -162,6 +166,10 @@
                 //context.selectAll(".categorycontext").select(".line").attr("d", function(d) { return linecontext(d.values); });
                   focus.select(".x.axis").call(xAxis);
                 // event to do when brushed ..
+              d3.selectAll(".circle")
+                          .attr("cx", function(d) {
+                            return  x(d.date);
+                          });
 
 
                 });
@@ -297,7 +305,7 @@
                     })
 
                     ;
-                    var series = category.selectAll("g.series")
+                   var series = category.selectAll("g.series")
                   	// convert the object to an array of d3 entries
                   							.data(categories).enter()
                   							// create a container for each series
@@ -314,69 +322,73 @@
                   								return "series-" + d.name
                   							})
 
-                series.selectAll("circle")
-                          // do a data join for each series' values
-                          .data(function(d) {
-                            return d.values ;
-                          })
-                          .enter()
-                          .append("circle")
+                                series.selectAll("circle")
+                                          // do a data join for each series' values
+                                          .data(function(d) {
+                                            return d.values.map(function (dd){ dd.name=d.name;  return dd; }) ;
+                                          })
+                                          .enter()
+                                          .append("circle")
 
-                          .attr("cx", function(d) {
-                            return  x(d.date);
-                          })
-                          .attr("r", "4")
-                          .classed("selected", false)
-                          .attr("cy", function(d) {
-                            return y(d.co2)
-                          })
-
-                          // / this mouse over copied from
-                          // /http://chimera.labs.oreilly.com/books/1230000000345/ch10.html#_html_div_tooltips
-                          //
-                          .on( "mouseover",
-                              function(d, i, j) {
-
-                                // Get this bar's x/y values, then augment for the tooltip
-                                var xPosition = parseFloat(d3.select(this).attr("cx")) + 40;
-                                var yPosition = parseFloat(d3.select(this).attr("cy")) + 60;
-                                if (yPosition > height) {
-                                  yPosition = yPosition - 120;
-                                }
-
-                                //console.log(" this position is "+xPosition +" y "+ yPosition
-                            //    +" rate tis "+d.rate);
-                                //Update the tooltip position and value
-                                d3.select("#tooltip").style("left", xPosition + "px").style(
-                                    "top", yPosition + "px").select("#value")
-
-                                .text(d.co2);
-
-                                d3.select("#tooltip").select("#category").text(
-                                    "  " + categories.values[i].name);
-
-                                d3.select("#tooltip").select("#date").text(d.date);
-                                ;
-
-                                // Show the tooltip
-                                d3.select("#tooltip").classed("hidden", false);
-
-                              })
-
-                          .on("mouseout", function() {
-                            // Hide the tooltip
-                            d3.select("#tooltip").classed("hidden", true);
-
-                          })
+                                          .attr("cx", function(d) {
+                                            return  x(d.date);
+                                          })
+                                          .attr("cy", function(d) {
+                                            return y(d.co2)
+                                          })
+                                          .attr("r", "4")
+                                          .attr("class", "circle")
+                                          .classed("selected", false)
 
 
-              			 .on ("click",function (d,i,j){
+                                          // / this mouse over copied from
+                                          // /http://chimera.labs.oreilly.com/books/1230000000345/ch10.html#_html_div_tooltips
+                                          //
+                                          .on( "mouseover",
+                                              function(d, i, j) {
 
-                       console.log(" the click on this "+d.co2);
-                     }
+                                                // Get this bar's x/y values, then augment for the tooltip
+                                                //var xPosition = parseFloat(d3.select(this).attr("cx")) + 40;
+                                                var xPosition=d3.event.pageX;
+                                                var yPosition=d3.event.pageY;
+                                                //var yPosition = parseFloat(d3.select(this).attr("cy")) + 60;
+                                                // if (yPosition > height) {
+                                                //   yPosition = yPosition - 120;
+                                                // }
+
+                                                console.log(" this position is "+xPosition +" y "+ yPosition
+                                                +" the co2  "+d.co2);
+                                                //Update the tooltip position and value
+                                                d3.select("#tooltip").style("left", xPosition + "px").style(
+                                                    "top", yPosition + "px").select("#value")
+
+                                                .text(d.co2);
+
+                                                d3.select("#tooltip").select("#category").text(
+                                                    "  " + d.name);
+
+                                                d3.select("#tooltip").select("#date").text(d.date.getFullYear());
+                                                ;
+
+                                                // Show the tooltip
+                                                d3.select("#tooltip").classed("hidden", false);
+
+                                              })
+
+                                          .on("mouseout", function() {
+                                            // Hide the tooltip
+                                        //    d3.select("#tooltip").classed("hidden", true);
+
+                                          })
 
 
-                   );
+                              			 .on ("click",function (d,i,j){
+
+                                       console.log(" the click on this "+d.co2);
+                                     }
+
+
+                                   );
 
                    // add the brush on the context with the new domain and scale...
 
@@ -395,5 +407,8 @@
 
         });  /// d3 .csv ...
         </script>
+
+
+
 </body>
 </html>

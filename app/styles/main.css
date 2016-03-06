@@ -98,7 +98,7 @@ ading for the svg and d3 part. .
   shape-rendering: crispEdges;
 }
 
-.tooltip {
+.tooltip2 {
         position: absolute;
         width: 200px;
         height: auto;
