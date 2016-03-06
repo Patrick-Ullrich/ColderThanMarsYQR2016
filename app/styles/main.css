@@ -70,3 +70,8 @@ header {
 .division {
   border-bottom: 1px solid #e5e5e5;
 }
+
+.description {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+}

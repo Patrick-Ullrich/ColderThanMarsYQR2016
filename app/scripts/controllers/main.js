@@ -84,11 +84,11 @@ angular.module('colderThanMarsYqr2016App')
 				}
 			},			
 		];
-		
+
 		$scope.dog = 1;
 		$scope.elk = 500;
 		$scope.truck = 1950;
-		$scope.whale = 180000;
+		$scope.whale = 249000000;
 
 		$scope.getTotal = function(year, animal) {
 			for(var i = 0; i < $scope.skByYear.length; i++){
