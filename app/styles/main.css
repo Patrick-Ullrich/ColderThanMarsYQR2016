@@ -55,7 +55,7 @@ header {
 }
 
 .masthead {
-  background: url("../images/prairies.jpg") no-repeat fixed center;
+  background: url("../images/prairies.jpg") no-repeat center;
 }
 
 .row.title {
@@ -70,6 +70,10 @@ header {
 
 .division {
   border-bottom: 1px solid #e5e5e5;
+}
+
+.img-circle{
+  width:100%;
 }
 /***
 
